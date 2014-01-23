@@ -1,0 +1,202 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+    <title>psjinx's blog</title>
+    <link href="http://www.psjinx.com/feed.xml" rel="self"/>
+    <link href="http://www.psjinx.com/"/>
+    <updated>2014-01-23T11:10:56+05:30</updated>
+    <id>http://www.psjinx.com/</id>
+    <author>
+        <name>Pankaj Singh</name>
+        <email>psjinx@gmail.com</email>
+    </author>
+
+    
+    <entry>
+        <title>Parsing excel workbooks using Javascript</title>
+        <link href="http://www.psjinx.com/programming/2014/01/04/parsing-excel-workbooks-using-javascript"/>
+        <updated>2014-01-04T00:00:00+05:30</updated>
+        <id>http://www.psjinx.com/programming/2014/01/04/parsing-excel-workbooks-using-javascript</id>
+        
+        <category term="programming" />
+        
+        <content type="html">&lt;p&gt;Recently, I had to create a new web app, which would generate PDF reports based on data stored in excel worksheets. As usual, I used Django along with many other Python libraries for this.&lt;/p&gt;
+
+&lt;p&gt;I has following parts:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;strong&gt;HTML Form -&lt;/strong&gt; To select excel files and upload it to server&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Parsing uploaded excel file -&lt;/strong&gt; Basic validation followed by reading data from worksheets. I used &lt;code&gt;xlrd&lt;/code&gt; module from &lt;a href=&quot;http://www.python-excel.org/&quot;&gt;Python-Excel&lt;/a&gt; project for this.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;Data analysis and plots -&lt;/strong&gt; I used &lt;a href=&quot;http://pandas.pydata.org/&quot;&gt;&lt;code&gt;pandas&lt;/code&gt;&lt;/a&gt;, Python Data Analysis Library, and &lt;a href=&quot;http://matplotlib.org/&quot;&gt;&lt;code&gt;matplotlib&lt;/code&gt;&lt;/a&gt;, a python 2D plotting library, for this.&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;PDF Generation -&lt;/strong&gt; &lt;a href=&quot;http://www.reportlab.com/software/rml-reference/&quot;&gt;&lt;code&gt;RML&lt;/code&gt;&lt;/a&gt; from &lt;a href=&quot;http://www.reportlab.com/&quot;&gt;ReportLab&lt;/a&gt; along with awesomeness of &lt;a href=&quot;https://docs.djangoproject.com/en/dev/ref/templates/&quot;&gt;Django Templates&lt;/a&gt; seems suitable for this job. I used &lt;a href=&quot;https://github.com/zopefoundation/z3c.rml&quot;&gt;&lt;code&gt;z3c.rml&lt;/code&gt;&lt;/a&gt;, an open source implementation of &lt;code&gt;RML&lt;/code&gt; standard by &lt;a href=&quot;http://foundation.zope.org/&quot;&gt;Zope Foundation&lt;/a&gt;.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;So, everything was working like a charm, except the fact that web app was reading data from first worksheet by index whenever an excel workbook was uploaded. But, user should be able to tell which worksheet to read from, right?&lt;/p&gt;
+
+&lt;p&gt;For this, I needed to know sheet names for selected excel workbook and then show a select box to choose one sheet name. I also wanted to show data stored in that worksheet in a table, a preview.&lt;/p&gt;
+
+&lt;p&gt;After couple of Google searches for &lt;em&gt;&quot;reading excel files using javascript&quot;&lt;/em&gt;, I landed up on homepage of &lt;a href=&quot;http://oss.sheetjs.com/&quot;&gt;SheetJS&lt;/a&gt; project. They have two projects, &lt;a href=&quot;https://github.com/SheetJS/js-xlsx&quot;&gt;&lt;code&gt;js-xlsx&lt;/code&gt;&lt;/a&gt; and &lt;a href=&quot;https://github.com/SheetJS/js-xls&quot;&gt;&lt;code&gt;js-xls&lt;/code&gt;&lt;/a&gt;, but I did not get &lt;strong&gt;&lt;code&gt;&quot;for human beings&quot;&lt;/code&gt;&lt;/strong&gt; feeling from this &lt;em&gt;(if you have see &lt;a href=&quot;https://gist.github.com/kennethreitz/973705&quot;&gt;requests vs urllib2&lt;/a&gt; then you know what I mean)&lt;/em&gt;.&lt;/p&gt;
+
+&lt;p&gt;After 1-2 hours of walking through source code of &lt;code&gt;js-xlsx&lt;/code&gt;, I ended up writing &lt;a href=&quot;https://gist.github.com/psjinx/8002786&quot;&gt;XLSX reader using javascript for humans&lt;/a&gt;. Example code using this new library looks like:&lt;/p&gt;
+
+&lt;div class=&quot;highlight&quot;&gt;&lt;pre&gt;&lt;code class=&quot;javascript&quot;&gt;&lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;()&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+    &lt;span class=&quot;nx&quot;&gt;$&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;s2&quot;&gt;&amp;quot;#xlsxFile&amp;quot;&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;).&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;change&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;event&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+        &lt;span class=&quot;kd&quot;&gt;var&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;k&quot;&gt;this&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;files&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;[&lt;/span&gt;&lt;span class=&quot;mi&quot;&gt;0&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;],&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;sheets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+        &lt;span class=&quot;nx&quot;&gt;XLSXReader&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;file&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kc&quot;&gt;true&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;,&lt;/span&gt; &lt;span class=&quot;kd&quot;&gt;function&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;xlsxData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;)&lt;/span&gt; &lt;span class=&quot;p&quot;&gt;{&lt;/span&gt;
+            &lt;span class=&quot;nx&quot;&gt;sheets&lt;/span&gt; &lt;span class=&quot;o&quot;&gt;=&lt;/span&gt; &lt;span class=&quot;nx&quot;&gt;xlsxData&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;.&lt;/span&gt;&lt;span class=&quot;nx&quot;&gt;sheets&lt;/span&gt;&lt;span class=&quot;p&quot;&gt;;&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// Do somehting with sheets. It&amp;#39;s a&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// Javascript object with sheet names&lt;/span&gt;
+            &lt;span class=&quot;c1&quot;&gt;// as keys and data as value in form of 2D array&lt;/span&gt;
+        &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+    &lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;span class=&quot;p&quot;&gt;});&lt;/span&gt;
+&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
+
+
+&lt;p&gt;I have integrated this &lt;code&gt;XLSXReader&lt;/code&gt; in my web app along with &lt;a href=&quot;http://angularjs.org/&quot;&gt;AngularJS&lt;/a&gt;. It consists of following parts:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;XLSXReaderService&lt;/code&gt;, an angular app service, written on top of &lt;code&gt;XLSXReader&lt;/code&gt;,&lt;/li&gt;
+&lt;li&gt;&lt;del&gt;a web worker for reading excel files in a separate thread&lt;/del&gt; Firefox does not support &lt;code&gt;FileReader&lt;/code&gt; api for web workers, so not using it anymore,&lt;/li&gt;
+&lt;li&gt;an AngularJS controller along with HTML template.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;Code snippet for this integration is available at &lt;a href=&quot;https://gist.github.com/psjinx/8252417&quot;&gt;https://gist.github.com/psjinx/8252417&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Demo&lt;/h3&gt;
+
+&lt;p&gt;You can see a demo of above code snippet at &lt;a href=&quot;http://code.psjinx.com/xlsx.js/&quot;&gt;http://code.psjinx.com/xlsx.js/&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h3&gt;Use cases for this kind of library&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Showing list of sheet names to choose from&lt;/li&gt;
+&lt;li&gt;Preview of data stored in worksheets&lt;/li&gt;
+&lt;li&gt;Integration with excel like data grid editors, e.g. &lt;a href=&quot;http://handsontable.com/&quot;&gt;Handsontable&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;Send JSON data to server instead of excel files&lt;/li&gt;
+&lt;li&gt;Integration with &lt;a href=&quot;http://d3js.org/&quot;&gt;D3.js&lt;/a&gt; and a lot more&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;&lt;em&gt;P.S. - I have tested everything on Google Chrome and Mozilla Firefox only. Since, this web appliaction is for internal use, I don't have to deal with browser compatibility issues. But, it should work in all browsers supported by &lt;a href=&quot;http://lodash.com/&quot;&gt;Lodash&lt;/a&gt; and SheetJS.&lt;/em&gt;&lt;/p&gt;
+</content>
+    </entry>
+    
+    <entry>
+        <title>So, you want to create users using django-tastypie</title>
+        <link href="http://www.psjinx.com/programming/2013/06/07/so-you-want-to-create-users-using-djangotastypie"/>
+        <updated>2013-06-07T00:00:00+05:30</updated>
+        <id>http://www.psjinx.com/programming/2013/06/07/so-you-want-to-create-users-using-djangotastypie</id>
+        
+        <category term="programming" />
+        
+        <content type="html">&lt;p&gt;So lately, I have been thinking to write about what I learnt in past 5-6 months.
+I will force myself to write something fun and useful every once in a while,
+mostly related to Django for next few weeks.&lt;/p&gt;
+
+&lt;p&gt;I worked with &lt;code&gt;django-tastypie&lt;/code&gt; for last 2-3 months to implement RESTful API
+for iOS applications. It involved implementation of an end point for creating
+new users.&lt;/p&gt;
+
+&lt;p&gt;This is not something which is really documented, so here I'm sharing my experience.
+In a nutshell, we need to override &lt;code&gt;obj_create&lt;/code&gt; method of &lt;code&gt;ModelResource&lt;/code&gt; and do
+some validation on posted data. After few iterations I ended up with a code
+which is easily maintainable with future relases of &lt;code&gt;django-tastypie&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h3&gt;tl;dr&lt;/h3&gt;
+
+&lt;ol&gt;
+&lt;li&gt;Check if all required fields are set in posted data.&lt;/li&gt;
+&lt;li&gt;Check if there is an existing user with same username or email address.&lt;/li&gt;
+&lt;li&gt;Validate posted data (e.g. password validation).&lt;/li&gt;
+&lt;li&gt;Set password from raw password.&lt;/li&gt;
+&lt;li&gt;Hide raw password from response.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;Let's dive in.&lt;/p&gt;
+
+&lt;h3&gt;Update&lt;/h3&gt;
+
+&lt;p&gt;I have created an &lt;a href=&quot;https://github.com/psjinx/django-tastypie-custom-user-example&quot;&gt;example project on Github&lt;/a&gt;
+for user registration. It uses Django 1.5, Custom user model and django-tastypie v0.10.0.&lt;/p&gt;
+
+&lt;h3&gt;&lt;code&gt;UserProfile&lt;/code&gt; model&lt;/h3&gt;
+
+&lt;p&gt;&lt;code&gt;django-tastypie==0.9.14&lt;/code&gt; and &lt;code&gt;Django 1.4.x&lt;/code&gt; have been used for this example.
+Since, support for custom User model was not very good in &lt;code&gt;django-tastypie&lt;/code&gt; till
+&lt;code&gt;v0.9.15&lt;/code&gt;, I had to define &lt;code&gt;UserProfile&lt;/code&gt; model in &lt;code&gt;Django 1.4.x&lt;/code&gt; style.&lt;/p&gt;
+
+&lt;p&gt;Here is the code for &lt;code&gt;UserProfile&lt;/code&gt; model:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/5722079.js?file=models.py&quot;&gt; &lt;/script&gt;
+
+
+&lt;h3&gt;In case you need custom password validation&lt;/h3&gt;
+
+&lt;p&gt;If you have some rules for passwords then it's best to have that logic in a
+function, because we may need to use that at different places (custom view
+for resetting password?).&lt;/p&gt;
+
+&lt;p&gt;I defined following &lt;code&gt;validate_password&lt;/code&gt; function which uses regular expressions:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/5722079.js?file=utils.py&quot;&gt; &lt;/script&gt;
+
+
+&lt;h3&gt;Raising custom exception for bad http requests&lt;/h3&gt;
+
+&lt;p&gt;Format of JSON response for bad requests changed from &lt;code&gt;v0.9.12&lt;/code&gt; to &lt;code&gt;v0.9.14&lt;/code&gt; in
+&lt;code&gt;django-tastypie&lt;/code&gt; which caused some issues for iOS application we were building.
+So, I wrote following custom class to solve this:&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/5722079.js?file=exceptions.py&quot;&gt; &lt;/script&gt;
+
+
+&lt;h3&gt;Model resources to manage user profiles&lt;/h3&gt;
+
+&lt;p&gt;I have defined 3 model resources as you can see in following code snippet:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;UserResource&lt;/code&gt; - it uses &lt;code&gt;contrib.auth.models.User&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;CreateUserResource&lt;/code&gt; - used for creating new &lt;code&gt;UserProfile&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;UserProfileResource&lt;/code&gt; - used to &lt;code&gt;GET/PUT/PATCH&lt;/code&gt; &lt;code&gt;UserProfile&lt;/code&gt; objects.&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;I had to define two resources for &lt;code&gt;UserProfile&lt;/code&gt; model because creating new
+user will be unauthenticated &lt;code&gt;POST&lt;/code&gt; request but &lt;code&gt;GET/PUT/PATCH&lt;/code&gt; need
+&lt;code&gt;request.user&lt;/code&gt; for filtering. Currently there is no support for specifying
+authentication for each method method.&lt;/p&gt;
+
+&lt;script src=&quot;https://gist.github.com/5722079.js?file=api.py&quot;&gt; &lt;/script&gt;
+
+
+&lt;p&gt;Following steps are involved in validating posted data:&lt;/p&gt;
+
+&lt;ol&gt;
+&lt;li&gt;&lt;code&gt;hydrate&lt;/code&gt; method in &lt;code&gt;CreateUserResource&lt;/code&gt; is used to check if required
+fields are available in &lt;code&gt;bundle.data&lt;/code&gt; or not.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;obj_create&lt;/code&gt; method in &lt;code&gt;CreateUserResource&lt;/code&gt; is used to check if there is any
+other user with same &lt;code&gt;email&lt;/code&gt; and &lt;code&gt;username&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;hydrate&lt;/code&gt; method in &lt;code&gt;UserResource&lt;/code&gt; is used to validate &lt;code&gt;raw_password&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;dehydrate&lt;/code&gt; method in &lt;code&gt;UserResource&lt;/code&gt; is used to delete &lt;code&gt;raw_password&lt;/code&gt; from&lt;/li&gt;
+&lt;/ol&gt;
+
+
+&lt;p&gt;&lt;b&gt;You should also check if there is any other user with same &lt;code&gt;username&lt;/code&gt; or &lt;code&gt;email&lt;/code&gt;
+if your app has option to update &lt;code&gt;username&lt;/code&gt; or &lt;code&gt;email&lt;/code&gt;. It can be done by
+comparing &lt;code&gt;bundle.obj.username&lt;/code&gt; with &lt;code&gt;bundle.data.get('username')&lt;/code&gt; in &lt;code&gt;hydrate&lt;/code&gt;
+method of &lt;code&gt;UserResource&lt;/code&gt;.&lt;/b&gt;&lt;/p&gt;
+
+&lt;h3&gt;Conclusion&lt;/h3&gt;
+
+&lt;p&gt;This simple implementation is easiliy maintainable. If you have any questions or
+suggestions please post them in comments.&lt;/p&gt;
+</content>
+    </entry>
+    
+
+</feed>

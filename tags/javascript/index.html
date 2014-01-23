@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Tags: javascript - psjinx's blog</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- for Google -->
+    <meta description=" psjinx's personal blog ">
+    <meta name="keywords" content='psjinx, pankaj singh, iit kharagpur, django, javascript, xamcheck, policy innovations, freelancer'>
+    <meta name="author" content="Pankaj Singh">
+
+    <!-- for Facebook -->
+    <meta property="og:title" content="Tags: javascript - psjinx's blog" />
+    <meta property="og:image" content="https://gravatar.com/avatar/d36fdce04734c18be6c97814ded214c2" />
+    <meta property="og:url" content="http://psjinx.com/" />
+    <meta property="og:description" content=" psjinx's personal blog " />
+
+    <!-- for Twitter -->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:title" content="Tags: javascript - psjinx's blog" />
+    <meta name="twitter:description" content=" psjinx's personal blog " />
+    <meta name="twitter:image" content="https://gravatar.com/avatar/d36fdce04734c18be6c97814ded214c2" />
+
+    <!-- Favicon -->
+    <link href="/favicon.ico" rel="shortcut icon" />
+
+    <!--Stylesheets-->
+    <link rel="stylesheet" media="screen" type="text/css" href="/css/style.css" />
+    <link rel="stylesheet" media="screen" type="text/css" href="/css/syntax.css" />
+
+    <!--Atom Feed-->
+    <link rel="alternate" type="application/atom+xml" title="Atom" href="/feed.xml" />
+
+    <!-- Scripts-->
+    <script type="text/javascript" src="/js/head.min.js"></script>
+    <script type="text/javascript">
+    //Google analytics
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-12748803-5']);
+    _gaq.push(['_trackPageview']);
+
+    //Disqus
+    var disqus_shortname = 'psjinx'; { %
+        if site.auto %
+    }
+    var disqus_developer = 1; { %
+        else %
+    }
+    head.js(
+        "http://www.google-analytics.com/ga.js",
+        "https://apis.google.com/js/plusone.js"
+    ); { % endif %
+    } { %
+        if page.comments - count %
+    }
+    head.js("http://psjinx.disqus.com/count.js"); { % endif %
+    } { %
+        if page.comments %
+    }
+    head.js("http://psjinx.disqus.com/embed.js"); { % endif %
+    }
+    </script>
+</head>
+
+<body>
+    <div id="header">
+    <span class="byline">writing my thoughts...</span>
+    <h1><a href="/">psjinx's blog</a></h1>
+</div>
+
+<div id="content">
+    <div class="posts">
+    
+    <div class="post">
+        <h2 class="post-title" id="parsing-excel-workbooks-using-javascript"><a href="/programming/2014/01/04/parsing-excel-workbooks-using-javascript/">Parsing excel workbooks using Javascript</a></h2>
+<div class="meta">
+    <span class="date">
+        <img alt="Posted on" src="/images/calendar.png"/> 04 Jan, 2014
+    </span>
+    <span class="share">
+        <g:plusone size="small" href="http://www.psjinx.com/programming/2014/01/04/parsing-excel-workbooks-using-javascript/"></g:plusone>&nbsp;
+    </span>
+    <span class="tags" >
+        
+        <img alt="Tags" src="/images/tag.png"/>
+        
+        <a href="/tags/xlsxjs">xlsxjs</a>
+        
+        <a href="/tags/xlsx">xlsx</a>
+        
+        <a href="/tags/javascript">javascript</a>
+        
+        <a href="/tags/excel">excel</a>
+        
+        <a href="/tags/workbook">workbook</a>
+        
+        
+    </span>
+
+    <a class="comments" href="/programming/2014/01/04/parsing-excel-workbooks-using-javascript/#disqus_thread" data-disqus-identifier="parsing-excel-workbooks-using-javascript">Comments</a>
+</div>
+
+
+    </div>
+    
+</div>
+
+</div>
+
+<div id="sidebar">
+    <ul>
+        <li><a href="/">Blog</a></li>
+        <li><a href="http://github.com/psjinx" target="_blank">Github</a></li>
+        <li><a href="http://about.me/psjinx" target="_blank">About Me</a></li>
+        <li><a href="/resume" target="_blank">Resume</a></li>
+        <li><a href="https://djangogigs.com/developers/pankaj-singh/" target="_blank">Hire Me</a></li>
+        <li>
+            <a href="http://stackoverflow.com/users/353550/psjinx" style="background-color:#FBFBFB;"  target="_blank">
+                <img src="http://stackoverflow.com/users/flair/353550.png?theme=clean" width="208" height="58" alt="profile for psjinx at Stack Overflow, Q&A for professional and enthusiast programmers" title="profile for psjinx at Stack Overflow, Q&A for professional and enthusiast programmers">
+            </a>
+        </li>
+        <li style="padding-top:10px; padding-left:10px;"><script data-gittip-username="psjinx" src="//gttp.co/v1.js"></script></li>
+        <li>
+		  <a style="background-color:#FBFBFB;" href="http://feeds.feedburner.com/psjinx-blog" rel="alternate" type="application/rss+xml" target="_blank">
+		    <img src="http://www.feedburner.com/fb/images/pub/feed-icon16x16.png" width="16" height="16" alt="" style="vertical-align:middle;border:0">
+		    &nbsp;Subscribe in a reader
+		  </a>
+		</li>
+		<li>
+		  <a style="background-color:#FBFBFB;" href="http://feedburner.google.com/fb/a/mailverify?uri=psjinx-blog&amp;loc=en_US" target="_blank">
+		    <img src="/images/mail.png" width="16" height="16" alt="" style="vertical-align:middle;border:0">
+		    &nbsp;Subscribe via email
+		  </a>
+		</li>  
+
+    </ul>
+</div>
+
+<div id="footer">
+    <p>
+        <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
+        Using <a href="http://jekyllrb.com/" target="_blank">Jekyll</a>,
+        <a href="http://pygments.org/" target="_blank">Pygments</a>
+        | <a href="/sitemap.xml" target="_blank">Sitemap</a>
+    </p>
+</div>
+
+    <a href="https://plus.google.com/+PankajSingh-aka-psjinx/" rel="author" style="display:none"></a>
+</body>
+
+</html>
