@@ -42,25 +42,19 @@
     _gaq.push(['_trackPageview']);
 
     //Disqus
-    var disqus_shortname = 'psjinx'; { %
-        if site.auto %
-    }
-    var disqus_developer = 1; { %
-        else %
-    }
+    var disqus_shortname = 'psjinx';
+    
     head.js(
         "http://www.google-analytics.com/ga.js",
         "https://apis.google.com/js/plusone.js"
-    ); { % endif %
-    } { %
-        if page.comments - count %
-    }
-    head.js("http://psjinx.disqus.com/count.js"); { % endif %
-    } { %
-        if page.comments %
-    }
-    head.js("http://psjinx.disqus.com/embed.js"); { % endif %
-    }
+    );
+    
+    
+    head.js("http://psjinx.disqus.com/count.js");
+    
+    
+    head.js("http://psjinx.disqus.com/embed.js");
+    
     </script>
 </head>
 
@@ -106,7 +100,8 @@
         <a href="http://psjinx.com" itemprop="url">psjinx.com</a>
     </span>
     <span itemprop="comment" itemscope itemtype="http://schema.org/UserComments" content="UserComments"><a class="comments" href="http://psjinx.com/programming/2013/06/07/so-you-want-to-create-users-using-djangotastypie/#disqus_thread" data-disqus-identifier="so-you-want-to-create-users-using-djangotastypie">Comments</a>
-        <span style="display:none;"><a itemprop="replyToUrl" href="http://psjinx.com/programming/2013/06/07/so-you-want-to-create-users-using-djangotastypie/#disqus_thread">http://psjinx.com/programming/2013/06/07/so-you-want-to-create-users-using-djangotastypie/#disqus_thread</a></span>
+        <span style="display:none;"><a itemprop="replyToUrl" href="http://psjinx.com/programming/2013/06/07/so-you-want-to-create-users-using-djangotastypie/#disqus_thread">http://psjinx.com/programming/2013/06/07/so-you-want-to-create-users-using-djangotastypie/#disqus_thread</a>
+        </span>
     </span>
 </div>
 
