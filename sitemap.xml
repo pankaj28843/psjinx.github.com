@@ -2,14 +2,14 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     
     <url>
-        <loc>http://www.psjinx.com/programming/2014/01/04/parsing-excel-workbooks-using-javascript/</loc>
+        <loc>http://psjinx.com/programming/2014/01/04/parsing-excel-workbooks-using-javascript/</loc>
         <lastmod>2014-01-04</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
     </url>
     
     <url>
-        <loc>http://www.psjinx.com/programming/2013/06/07/so-you-want-to-create-users-using-djangotastypie/</loc>
+        <loc>http://psjinx.com/programming/2013/06/07/so-you-want-to-create-users-using-djangotastypie/</loc>
         <lastmod>2013-06-07</lastmod>
         <changefreq>weekly</changefreq>
         <priority>0.8</priority>
