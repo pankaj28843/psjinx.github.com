@@ -109,7 +109,8 @@
         <span itemprop="jobTitle">Programmer</span>
         <a href="http://psjinx.com" itemprop="url">psjinx.com</a>
     </span>
-    <span itemprop="interactionCount" content="UserComments"><a class="comments" href="http://psjinx.com/programming/2014/01/04/parsing-excel-workbooks-using-javascript/#disqus_thread" data-disqus-identifier="parsing-excel-workbooks-using-javascript">Comments</a>
+    <span itemprop="comment" itemscope itemtype="http://schema.org/UserComments" content="UserComments"><a class="comments" href="http://psjinx.com/programming/2014/01/04/parsing-excel-workbooks-using-javascript/#disqus_thread" data-disqus-identifier="parsing-excel-workbooks-using-javascript">Comments</a>
+        <span style="display:none;"><a itemprop="replyToUrl" href="http://psjinx.com/programming/2014/01/04/parsing-excel-workbooks-using-javascript/#disqus_thread">http://psjinx.com/programming/2014/01/04/parsing-excel-workbooks-using-javascript/#disqus_thread</a></span>
     </span>
 </div>
 
@@ -179,71 +180,6 @@
 <p><em>P.S. - I have tested everything on Google Chrome and Mozilla Firefox only. Since, this web appliaction is for internal use, I don't have to deal with browser compatibility issues. But, it should work in all browsers supported by <a href="http://lodash.com/">Lodash</a> and SheetJS.</em></p>
  
     </div>
-    <p style="display:none" itemprop="text">
-         <p>Recently, I had to create a new web app, which would generate PDF reports based on data stored in excel worksheets. As usual, I used Django along with many other Python libraries for this.</p>
-
-<p>I has following parts:</p>
-
-<ol>
-<li><strong>HTML Form -</strong> To select excel files and upload it to server</li>
-<li><strong>Parsing uploaded excel file -</strong> Basic validation followed by reading data from worksheets. I used <code>xlrd</code> module from <a href="http://www.python-excel.org/">Python-Excel</a> project for this.</li>
-<li><strong>Data analysis and plots -</strong> I used <a href="http://pandas.pydata.org/"><code>pandas</code></a>, Python Data Analysis Library, and <a href="http://matplotlib.org/"><code>matplotlib</code></a>, a python 2D plotting library, for this.</li>
-<li><strong>PDF Generation -</strong> <a href="http://www.reportlab.com/software/rml-reference/"><code>RML</code></a> from <a href="http://www.reportlab.com/">ReportLab</a> along with awesomeness of <a href="https://docs.djangoproject.com/en/dev/ref/templates/">Django Templates</a> seems suitable for this job. I used <a href="https://github.com/zopefoundation/z3c.rml"><code>z3c.rml</code></a>, an open source implementation of <code>RML</code> standard by <a href="http://foundation.zope.org/">Zope Foundation</a>.</li>
-</ol>
-
-
-<p>So, everything was working like a charm, except the fact that web app was reading data from first worksheet by index whenever an excel workbook was uploaded. But, user should be able to tell which worksheet to read from, right?</p>
-
-<p>For this, I needed to know sheet names for selected excel workbook and then show a select box to choose one sheet name. I also wanted to show data stored in that worksheet in a table, a preview.</p>
-
-<p>After couple of Google searches for <em>"reading excel files using javascript"</em>, I landed up on homepage of <a href="http://oss.sheetjs.com/">SheetJS</a> project. They have two projects, <a href="https://github.com/SheetJS/js-xlsx"><code>js-xlsx</code></a> and <a href="https://github.com/SheetJS/js-xls"><code>js-xls</code></a>, but I did not get <strong><code>"for human beings"</code></strong> feeling from this <em>(if you have see <a href="https://gist.github.com/kennethreitz/973705">requests vs urllib2</a> then you know what I mean)</em>.</p>
-
-<p>After 1-2 hours of walking through source code of <code>js-xlsx</code>, I ended up writing <a href="https://gist.github.com/psjinx/8002786">XLSX reader using javascript for humans</a>. Example code using this new library looks like:</p>
-
-<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#xlsxFile&quot;</span><span class="p">).</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">file</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">files</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-            <span class="nx">sheets</span><span class="p">;</span>
-        <span class="nx">XLSXReader</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">xlsxData</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">sheets</span> <span class="o">=</span> <span class="nx">xlsxData</span><span class="p">.</span><span class="nx">sheets</span><span class="p">;</span>
-            <span class="c1">// Do somehting with sheets. It&#39;s a</span>
-            <span class="c1">// Javascript object with sheet names</span>
-            <span class="c1">// as keys and data as value in form of 2D array</span>
-        <span class="p">});</span>
-    <span class="p">});</span>
-<span class="p">});</span>
-</code></pre></div>
-
-
-<p>I have integrated this <code>XLSXReader</code> in my web app along with <a href="http://angularjs.org/">AngularJS</a>. It consists of following parts:</p>
-
-<ol>
-<li><code>XLSXReaderService</code>, an angular app service, written on top of <code>XLSXReader</code>,</li>
-<li><del>a web worker for reading excel files in a separate thread</del> Firefox does not support <code>FileReader</code> api for web workers, so not using it anymore,</li>
-<li>an AngularJS controller along with HTML template.</li>
-</ol>
-
-
-<p>Code snippet for this integration is available at <a href="https://gist.github.com/psjinx/8252417">https://gist.github.com/psjinx/8252417</a>.</p>
-
-<h3>Demo</h3>
-
-<p>You can see a demo of above code snippet at <a href="http://code.psjinx.com/xlsx.js/">http://code.psjinx.com/xlsx.js/</a>.</p>
-
-<h3>Use cases for this kind of library</h3>
-
-<ol>
-<li>Showing list of sheet names to choose from</li>
-<li>Preview of data stored in worksheets</li>
-<li>Integration with excel like data grid editors, e.g. <a href="http://handsontable.com/">Handsontable</a></li>
-<li>Send JSON data to server instead of excel files</li>
-<li>Integration with <a href="http://d3js.org/">D3.js</a> and a lot more</li>
-</ol>
-
-
-<p><em>P.S. - I have tested everything on Google Chrome and Mozilla Firefox only. Since, this web appliaction is for internal use, I don't have to deal with browser compatibility issues. But, it should work in all browsers supported by <a href="http://lodash.com/">Lodash</a> and SheetJS.</em></p>
- 
-    </p>
 </div>
 
 

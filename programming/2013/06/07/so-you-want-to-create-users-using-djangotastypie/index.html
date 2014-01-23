@@ -105,7 +105,8 @@
         <span itemprop="jobTitle">Programmer</span>
         <a href="http://psjinx.com" itemprop="url">psjinx.com</a>
     </span>
-    <span itemprop="interactionCount" content="UserComments"><a class="comments" href="http://psjinx.com/programming/2013/06/07/so-you-want-to-create-users-using-djangotastypie/#disqus_thread" data-disqus-identifier="so-you-want-to-create-users-using-djangotastypie">Comments</a>
+    <span itemprop="comment" itemscope itemtype="http://schema.org/UserComments" content="UserComments"><a class="comments" href="http://psjinx.com/programming/2013/06/07/so-you-want-to-create-users-using-djangotastypie/#disqus_thread" data-disqus-identifier="so-you-want-to-create-users-using-djangotastypie">Comments</a>
+        <span style="display:none;"><a itemprop="replyToUrl" href="http://psjinx.com/programming/2013/06/07/so-you-want-to-create-users-using-djangotastypie/#disqus_thread">http://psjinx.com/programming/2013/06/07/so-you-want-to-create-users-using-djangotastypie/#disqus_thread</a></span>
     </span>
 </div>
 
@@ -215,111 +216,6 @@ method of <code>UserResource</code>.</b></p>
 suggestions please post them in comments.</p>
  
     </div>
-    <p style="display:none" itemprop="text">
-         <p>So lately, I have been thinking to write about what I learnt in past 5-6 months.
-I will force myself to write something fun and useful every once in a while,
-mostly related to Django for next few weeks.</p>
-
-<p>I worked with <code>django-tastypie</code> for last 2-3 months to implement RESTful API
-for iOS applications. It involved implementation of an end point for creating
-new users.</p>
-
-<p>This is not something which is really documented, so here I'm sharing my experience.
-In a nutshell, we need to override <code>obj_create</code> method of <code>ModelResource</code> and do
-some validation on posted data. After few iterations I ended up with a code
-which is easily maintainable with future relases of <code>django-tastypie</code>.</p>
-
-<h3>tl;dr</h3>
-
-<ol>
-<li>Check if all required fields are set in posted data.</li>
-<li>Check if there is an existing user with same username or email address.</li>
-<li>Validate posted data (e.g. password validation).</li>
-<li>Set password from raw password.</li>
-<li>Hide raw password from response.</li>
-</ol>
-
-
-<p>Let's dive in.</p>
-
-<h3>Update</h3>
-
-<p>I have created an <a href="https://github.com/psjinx/django-tastypie-custom-user-example">example project on Github</a>
-for user registration. It uses Django 1.5, Custom user model and django-tastypie v0.10.0.</p>
-
-<h3><code>UserProfile</code> model</h3>
-
-<p><code>django-tastypie==0.9.14</code> and <code>Django 1.4.x</code> have been used for this example.
-Since, support for custom User model was not very good in <code>django-tastypie</code> till
-<code>v0.9.15</code>, I had to define <code>UserProfile</code> model in <code>Django 1.4.x</code> style.</p>
-
-<p>Here is the code for <code>UserProfile</code> model:</p>
-
-<script src="https://gist.github.com/5722079.js?file=models.py"> </script>
-
-
-<h3>In case you need custom password validation</h3>
-
-<p>If you have some rules for passwords then it's best to have that logic in a
-function, because we may need to use that at different places (custom view
-for resetting password?).</p>
-
-<p>I defined following <code>validate_password</code> function which uses regular expressions:</p>
-
-<script src="https://gist.github.com/5722079.js?file=utils.py"> </script>
-
-
-<h3>Raising custom exception for bad http requests</h3>
-
-<p>Format of JSON response for bad requests changed from <code>v0.9.12</code> to <code>v0.9.14</code> in
-<code>django-tastypie</code> which caused some issues for iOS application we were building.
-So, I wrote following custom class to solve this:</p>
-
-<script src="https://gist.github.com/5722079.js?file=exceptions.py"> </script>
-
-
-<h3>Model resources to manage user profiles</h3>
-
-<p>I have defined 3 model resources as you can see in following code snippet:</p>
-
-<ol>
-<li><code>UserResource</code> - it uses <code>contrib.auth.models.User</code>.</li>
-<li><code>CreateUserResource</code> - used for creating new <code>UserProfile</code>.</li>
-<li><code>UserProfileResource</code> - used to <code>GET/PUT/PATCH</code> <code>UserProfile</code> objects.</li>
-</ol>
-
-
-<p>I had to define two resources for <code>UserProfile</code> model because creating new
-user will be unauthenticated <code>POST</code> request but <code>GET/PUT/PATCH</code> need
-<code>request.user</code> for filtering. Currently there is no support for specifying
-authentication for each method method.</p>
-
-<script src="https://gist.github.com/5722079.js?file=api.py"> </script>
-
-
-<p>Following steps are involved in validating posted data:</p>
-
-<ol>
-<li><code>hydrate</code> method in <code>CreateUserResource</code> is used to check if required
-fields are available in <code>bundle.data</code> or not.</li>
-<li><code>obj_create</code> method in <code>CreateUserResource</code> is used to check if there is any
-other user with same <code>email</code> and <code>username</code>.</li>
-<li><code>hydrate</code> method in <code>UserResource</code> is used to validate <code>raw_password</code>.</li>
-<li><code>dehydrate</code> method in <code>UserResource</code> is used to delete <code>raw_password</code> from</li>
-</ol>
-
-
-<p><b>You should also check if there is any other user with same <code>username</code> or <code>email</code>
-if your app has option to update <code>username</code> or <code>email</code>. It can be done by
-comparing <code>bundle.obj.username</code> with <code>bundle.data.get('username')</code> in <code>hydrate</code>
-method of <code>UserResource</code>.</b></p>
-
-<h3>Conclusion</h3>
-
-<p>This simple implementation is easiliy maintainable. If you have any questions or
-suggestions please post them in comments.</p>
- 
-    </p>
 </div>
 
 
