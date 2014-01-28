@@ -1,10 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-    <meta charset="utf-8">
+<!doctype html>
+<html class="no-js" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Parsing excel workbooks using Javascript - psjinx's blog</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <!-- for Google -->
     <meta description="A Javascript library for parsing .xlsx files. It includes sample code along with demo for integration with AngularJS. Use cases include listing sheet names for selection in a form, showing preview of selected sheet etc. ">
@@ -27,45 +26,28 @@
     <link href="http://psjinx.com/favicon.ico" rel="shortcut icon" />
 
     <!--Stylesheets-->
-    <link rel="stylesheet" media="screen" type="text/css" href="http://psjinx.com/css/style.css" />
+
+    <link rel="stylesheet" href="http://psjinx.com/css/app.css" />
+    <script src="http://psjinx.com/bower_components/modernizr/modernizr.js"></script>
     <link rel="stylesheet" media="screen" type="text/css" href="http://psjinx.com/css/syntax.css" />
 
     <!--Atom Feed-->
     <link rel="alternate" type="application/atom+xml" title="Atom" href="http://psjinx.com/feed.xml" />
-
-    <!-- Scripts-->
-    <script type="text/javascript" src="http://psjinx.com/js/head.min.js"></script>
-    <script type="text/javascript">
-    //Google analytics
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-12748803-5']);
-    _gaq.push(['_trackPageview']);
-
-    //Disqus
-    var disqus_shortname = 'psjinx';
-    
-    head.js(
-        "http://www.google-analytics.com/ga.js",
-        "https://apis.google.com/js/plusone.js"
-    );
-    
-    
-    head.js("http://psjinx.disqus.com/count.js");
-    
-    
-    head.js("http://psjinx.disqus.com/embed.js");
-    
-    </script>
 </head>
 
 <body>
-    <div id="header">
-    <span class="byline">writing my thoughts...</span>
-    <h1><a href="http://psjinx.com/">psjinx's blog</a></h1>
+    <div class="row">
+    <div class="large-12 columns">
+        <h1>
+            <a href="http://psjinx.com/">psjinx's blog</a>
+        </h1>
+        <span class="byline">writing my thoughts...</span>
+    </div>
 </div>
 
-<div id="content">
-    
+<div class="row">
+    <div class="large-9 medium-9 columns">
+        
 <div class="post" itemscope itemtype="http://schema.org/Article">
     <h2 class="post-title" id="parsing-excel-workbooks-using-javascript">
     <a href="http://psjinx.com/programming/2014/01/04/parsing-excel-workbooks-using-javascript/">
@@ -191,47 +173,86 @@
 </div>
 
 
+    </div>
+    <div class="large-3 medium-3 columns">
+        <ul>
+            <li><a href="http://psjinx.com/">Blog</a>
+            </li>
+            <li><a href="http://github.com/psjinx" target="_blank">Github</a>
+            </li>
+            <li><a href="http://about.me/psjinx" target="_blank">About Me</a>
+            </li>
+            <li><a href="http://psjinx.com/resume" target="_blank">Resume</a>
+            </li>
+            <li><a href="https://djangogigs.com/developers/pankaj-singh/" target="_blank">Hire Me</a>
+            </li>
+            <li>
+                <a href="http://stackoverflow.com/users/353550/psjinx" style="background-color:#FBFBFB;" target="_blank">
+                    <img src="http://stackoverflow.com/users/flair/353550.png?theme=clean" width="208" height="58" alt="profile for psjinx at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for psjinx at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+                </a>
+            </li>
+            <li style="padding-top:10px; padding-left:10px;">
+                <script data-gittip-username="psjinx" src="//gttp.co/v1.js"></script>
+            </li>
+            <li>
+                <a style="background-color:#FBFBFB;" href="http://feeds.feedburner.com/psjinx-blog" rel="alternate" type="application/rss+xml" target="_blank">
+                    <img src="http://www.feedburner.com/fb/images/pub/feed-icon16x16.png" width="16" height="16" alt="" style="vertical-align:middle;border:0">&nbsp;Subscribe in a reader
+                </a>
+            </li>
+            <li>
+                <a style="background-color:#FBFBFB;" href="http://feedburner.google.com/fb/a/mailverify?uri=psjinx-blog&amp;loc=en_US" target="_blank">
+                    <img src="/images/mail.png" width="16" height="16" alt="" style="vertical-align:middle;border:0">&nbsp;Subscribe via email
+                </a>
+            </li>
+
+        </ul>
+    </div>
 </div>
 
-<div id="sidebar">
-    <ul>
-        <li><a href="http://psjinx.com/">Blog</a></li>
-        <li><a href="http://github.com/psjinx" target="_blank">Github</a></li>
-        <li><a href="http://about.me/psjinx" target="_blank">About Me</a></li>
-        <li><a href="http://psjinx.com/resume" target="_blank">Resume</a></li>
-        <li><a href="https://djangogigs.com/developers/pankaj-singh/" target="_blank">Hire Me</a></li>
-        <li>
-            <a href="http://stackoverflow.com/users/353550/psjinx" style="background-color:#FBFBFB;"  target="_blank">
-                <img src="http://stackoverflow.com/users/flair/353550.png?theme=clean" width="208" height="58" alt="profile for psjinx at Stack Overflow, Q&amp;A for professional and enthusiast programmers" title="profile for psjinx at Stack Overflow, Q&amp;A for professional and enthusiast programmers">
+<div class="row">
+    <div class="large-12 columns">
+        <p>
+            <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank">
+                <img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" />
             </a>
-        </li>
-        <li style="padding-top:10px; padding-left:10px;"><script data-gittip-username="psjinx" src="//gttp.co/v1.js"></script></li>
-        <li>
-		  <a style="background-color:#FBFBFB;" href="http://feeds.feedburner.com/psjinx-blog" rel="alternate" type="application/rss+xml" target="_blank">
-		    <img src="http://www.feedburner.com/fb/images/pub/feed-icon16x16.png" width="16" height="16" alt="" style="vertical-align:middle;border:0">
-		    &nbsp;Subscribe in a reader
-		  </a>
-		</li>
-		<li>
-		  <a style="background-color:#FBFBFB;" href="http://feedburner.google.com/fb/a/mailverify?uri=psjinx-blog&amp;loc=en_US" target="_blank">
-		    <img src="/images/mail.png" width="16" height="16" alt="" style="vertical-align:middle;border:0">
-		    &nbsp;Subscribe via email
-		  </a>
-		</li>
-
-    </ul>
-</div>
-
-<div id="footer">
-    <p>
-        <a rel="license" href="http://creativecommons.org/licenses/by/3.0/" target="_blank"><img alt="Creative Commons License" style="border-width:0" src="http://i.creativecommons.org/l/by/3.0/80x15.png" /></a>
-        Using <a href="http://jekyllrb.com/" target="_blank">Jekyll</a>,
-        <a href="http://pygments.org/" target="_blank">Pygments</a>
-        | <a href="http://psjinx.com/sitemap.xml" target="_blank">Sitemap</a>
-    </p>
+            Using <a href="http://jekyllrb.com/" target="_blank">Jekyll</a>,
+            <a href="http://pygments.org/" target="_blank">Pygments</a>
+            | <a href="http://psjinx.com/sitemap.xml" target="_blank">Sitemap</a>
+        </p>
+    </div>
 </div>
 
     <a href="https://plus.google.com/+PankajSingh-aka-psjinx/" rel="author" style="display:none"></a>
+
+    <!-- Scripts-->
+    <script src="http://psjinx.com/bower_components/jquery/jquery.js"></script>
+    <script src="http://psjinx.com/bower_components/foundation/js/foundation.min.js"></script>
+    <script type="text/javascript" src="http://psjinx.com/js/head.min.js"></script>
+    <script type="text/javascript">
+    // Foundation JavaScript
+    // Documentation can be found at: http://foundation.zurb.com/docs
+    $(document).foundation();
+
+    //Google analytics
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-12748803-5']);
+    _gaq.push(['_trackPageview']);
+
+    //Disqus
+    var disqus_shortname = 'psjinx';
+    
+    head.js(
+        "http://www.google-analytics.com/ga.js",
+        "https://apis.google.com/js/plusone.js"
+    );
+    
+    
+    head.js("http://psjinx.disqus.com/count.js");
+    
+    
+    head.js("http://psjinx.disqus.com/embed.js");
+    
+    </script>
 </body>
 
 </html>
