@@ -93,10 +93,10 @@
 </div>
 
     <span itemprop="description" style="display:none;">A Javascript library for parsing .xlsx files. It includes sample code along with demo for integration with AngularJS. Use cases include listing sheet names for selection in a form, showing preview of selected sheet etc.</span>
-    <div class='post-text' itemprop="articleBody">
+    <div class='section' itemprop="articleBody">
          <p>Recently, I had to create a new web app, which would generate PDF reports based on data stored in excel worksheets. As usual, I used Django along with many other Python libraries for this.</p>
 
-<p>I has following parts:</p>
+<p>It has following parts:</p>
 
 <ol>
 <li><strong>HTML Form -</strong> To select excel files and upload it to server</li>
@@ -107,6 +107,9 @@
 
 
 <p>So, everything was working like a charm, except the fact that web app was reading data from first worksheet by index whenever an excel workbook was uploaded. But, user should be able to tell which worksheet to read from, right?</p>
+
+<!-- more -->
+
 
 <p>For this, I needed to know sheet names for selected excel workbook and then show a select box to choose one sheet name. I also wanted to show data stored in that worksheet in a table, a preview.</p>
 

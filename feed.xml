@@ -4,7 +4,7 @@
     <title>psjinx's blog</title>
     <link href="http://psjinx.com/feed.xml" rel="self"/>
     <link href="http://psjinx.com/"/>
-    <updated>2014-01-28T15:51:31+05:30</updated>
+    <updated>2014-01-28T16:01:40+05:30</updated>
     <id>http://psjinx.com/</id>
     <author>
         <name>Pankaj Singh</name>
@@ -22,7 +22,7 @@
         
         <content type="html">&lt;p&gt;Recently, I had to create a new web app, which would generate PDF reports based on data stored in excel worksheets. As usual, I used Django along with many other Python libraries for this.&lt;/p&gt;
 
-&lt;p&gt;I has following parts:&lt;/p&gt;
+&lt;p&gt;It has following parts:&lt;/p&gt;
 
 &lt;ol&gt;
 &lt;li&gt;&lt;strong&gt;HTML Form -&lt;/strong&gt; To select excel files and upload it to server&lt;/li&gt;
@@ -33,6 +33,9 @@
 
 
 &lt;p&gt;So, everything was working like a charm, except the fact that web app was reading data from first worksheet by index whenever an excel workbook was uploaded. But, user should be able to tell which worksheet to read from, right?&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
 
 &lt;p&gt;For this, I needed to know sheet names for selected excel workbook and then show a select box to choose one sheet name. I also wanted to show data stored in that worksheet in a table, a preview.&lt;/p&gt;
 
@@ -118,6 +121,9 @@ which is easily maintainable with future relases of &lt;code&gt;django-tastypie&
 
 
 &lt;p&gt;Let's dive in.&lt;/p&gt;
+
+&lt;!-- more --&gt;
+
 
 &lt;h3&gt;Update&lt;/h3&gt;
 
