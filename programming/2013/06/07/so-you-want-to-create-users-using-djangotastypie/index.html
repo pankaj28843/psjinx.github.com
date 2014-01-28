@@ -50,13 +50,13 @@
     <div class="large-9 medium-9 columns">
         
 <div class="post" itemscope itemtype="http://schema.org/Article">
-    <h2 class="post-title" id="so-you-want-to-create-users-using-djangotastypie">
+    <h3 class="post-title" id="so-you-want-to-create-users-using-djangotastypie">
     <a href="http://psjinx.com/programming/2013/06/07/so-you-want-to-create-users-using-djangotastypie/">
         <span itemprop="name">So, you want to create users using django-tastypie</span>
     </a>
     <span itemprop="url" style="display:none"><a href="http://psjinx.com/programming/2013/06/07/so-you-want-to-create-users-using-djangotastypie/">http://psjinx.com/programming/2013/06/07/so-you-want-to-create-users-using-djangotastypie/</a>
     </span>
-</h2>
+</h3>
 <div class="meta">
     <span class="date" itemprop="datePublished">
         <i class="step fi-calendar size-24"></i>
@@ -111,7 +111,7 @@ In a nutshell, we need to override <code>obj_create</code> method of <code>Model
 some validation on posted data. After few iterations I ended up with a code
 which is easily maintainable with future relases of <code>django-tastypie</code>.</p>
 
-<h3>tl;dr</h3>
+<h4>tl;dr</h4>
 
 <ol>
 <li>Check if all required fields are set in posted data.</li>
@@ -127,12 +127,12 @@ which is easily maintainable with future relases of <code>django-tastypie</code>
 <!-- more -->
 
 
-<h3>Update</h3>
+<h4>Update</h4>
 
 <p>I have created an <a href="https://github.com/psjinx/django-tastypie-custom-user-example">example project on Github</a>
 for user registration. It uses Django 1.5, Custom user model and django-tastypie v0.10.0.</p>
 
-<h3><code>UserProfile</code> model</h3>
+<h4><code>UserProfile</code> model</h4>
 
 <p><code>django-tastypie==0.9.14</code> and <code>Django 1.4.x</code> have been used for this example.
 Since, support for custom User model was not very good in <code>django-tastypie</code> till
@@ -143,7 +143,7 @@ Since, support for custom User model was not very good in <code>django-tastypie<
 <script src="https://gist.github.com/5722079.js?file=models.py"> </script>
 
 
-<h3>In case you need custom password validation</h3>
+<h4>In case you need custom password validation</h4>
 
 <p>If you have some rules for passwords then it's best to have that logic in a
 function, because we may need to use that at different places (custom view
@@ -154,7 +154,7 @@ for resetting password?).</p>
 <script src="https://gist.github.com/5722079.js?file=utils.py"> </script>
 
 
-<h3>Raising custom exception for bad http requests</h3>
+<h4>Raising custom exception for bad http requests</h4>
 
 <p>Format of JSON response for bad requests changed from <code>v0.9.12</code> to <code>v0.9.14</code> in
 <code>django-tastypie</code> which caused some issues for iOS application we were building.
@@ -163,7 +163,7 @@ So, I wrote following custom class to solve this:</p>
 <script src="https://gist.github.com/5722079.js?file=exceptions.py"> </script>
 
 
-<h3>Model resources to manage user profiles</h3>
+<h4>Model resources to manage user profiles</h4>
 
 <p>I have defined 3 model resources as you can see in following code snippet:</p>
 
@@ -199,7 +199,7 @@ if your app has option to update <code>username</code> or <code>email</code>. It
 comparing <code>bundle.obj.username</code> with <code>bundle.data.get('username')</code> in <code>hydrate</code>
 method of <code>UserResource</code>.</b></p>
 
-<h3>Conclusion</h3>
+<h4>Conclusion</h4>
 
 <p>This simple implementation is easiliy maintainable. If you have any questions or
 suggestions please post them in comments.</p>
@@ -251,6 +251,18 @@ suggestions please post them in comments.</p>
         <h4>Subscribe To My Feed</h4>
         <p>
             While you're here, why not add my atom feed to your <a href="http://feeds.feedburner.com/psjinx-blog">RSS reader</a> or <a href="http://feedburner.google.com/fb/a/mailverify?uri=psjinx-blog&loc=en_US">via email</a> ?
+        </p>
+        <h4>Tags</h4>
+        <p class="tag-cloud">
+            <span style='font-size: 100%'><a href='/tags/django/'>django</a></span>
+<span style='font-size: 100%'><a href='/tags/django-tastypie/'>django-tastypie</a></span>
+<span style='font-size: 100%'><a href='/tags/rest-api/'>rest-api</a></span>
+<span style='font-size: 100%'><a href='/tags/xlsxjs/'>xlsxjs</a></span>
+<span style='font-size: 100%'><a href='/tags/xlsx/'>xlsx</a></span>
+<span style='font-size: 100%'><a href='/tags/javascript/'>javascript</a></span>
+<span style='font-size: 100%'><a href='/tags/excel/'>excel</a></span>
+<span style='font-size: 100%'><a href='/tags/workbook/'>workbook</a></span>
+
         </p>
     </div>
 </div>

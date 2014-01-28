@@ -4,7 +4,7 @@
     <title>psjinx's blog</title>
     <link href="http://psjinx.com/feed.xml" rel="self"/>
     <link href="http://psjinx.com/"/>
-    <updated>2014-01-28T16:51:59+05:30</updated>
+    <updated>2014-01-28T16:58:29+05:30</updated>
     <id>http://psjinx.com/</id>
     <author>
         <name>Pankaj Singh</name>
@@ -69,11 +69,11 @@
 
 &lt;p&gt;Code snippet for this integration is available at &lt;a href=&quot;https://gist.github.com/psjinx/8252417&quot;&gt;https://gist.github.com/psjinx/8252417&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3&gt;Demo&lt;/h3&gt;
+&lt;h4&gt;Demo&lt;/h4&gt;
 
 &lt;p&gt;You can see a demo of above code snippet at &lt;a href=&quot;http://code.psjinx.com/xlsx.js/&quot;&gt;http://code.psjinx.com/xlsx.js/&lt;/a&gt;.&lt;/p&gt;
 
-&lt;h3&gt;Use cases for this kind of library&lt;/h3&gt;
+&lt;h4&gt;Use cases for this kind of library&lt;/h4&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Showing list of sheet names to choose from&lt;/li&gt;
@@ -109,7 +109,7 @@ In a nutshell, we need to override &lt;code&gt;obj_create&lt;/code&gt; method of
 some validation on posted data. After few iterations I ended up with a code
 which is easily maintainable with future relases of &lt;code&gt;django-tastypie&lt;/code&gt;.&lt;/p&gt;
 
-&lt;h3&gt;tl;dr&lt;/h3&gt;
+&lt;h4&gt;tl;dr&lt;/h4&gt;
 
 &lt;ol&gt;
 &lt;li&gt;Check if all required fields are set in posted data.&lt;/li&gt;
@@ -125,12 +125,12 @@ which is easily maintainable with future relases of &lt;code&gt;django-tastypie&
 &lt;!-- more --&gt;
 
 
-&lt;h3&gt;Update&lt;/h3&gt;
+&lt;h4&gt;Update&lt;/h4&gt;
 
 &lt;p&gt;I have created an &lt;a href=&quot;https://github.com/psjinx/django-tastypie-custom-user-example&quot;&gt;example project on Github&lt;/a&gt;
 for user registration. It uses Django 1.5, Custom user model and django-tastypie v0.10.0.&lt;/p&gt;
 
-&lt;h3&gt;&lt;code&gt;UserProfile&lt;/code&gt; model&lt;/h3&gt;
+&lt;h4&gt;&lt;code&gt;UserProfile&lt;/code&gt; model&lt;/h4&gt;
 
 &lt;p&gt;&lt;code&gt;django-tastypie==0.9.14&lt;/code&gt; and &lt;code&gt;Django 1.4.x&lt;/code&gt; have been used for this example.
 Since, support for custom User model was not very good in &lt;code&gt;django-tastypie&lt;/code&gt; till
@@ -141,7 +141,7 @@ Since, support for custom User model was not very good in &lt;code&gt;django-tas
 &lt;script src=&quot;https://gist.github.com/5722079.js?file=models.py&quot;&gt; &lt;/script&gt;
 
 
-&lt;h3&gt;In case you need custom password validation&lt;/h3&gt;
+&lt;h4&gt;In case you need custom password validation&lt;/h4&gt;
 
 &lt;p&gt;If you have some rules for passwords then it's best to have that logic in a
 function, because we may need to use that at different places (custom view
@@ -152,7 +152,7 @@ for resetting password?).&lt;/p&gt;
 &lt;script src=&quot;https://gist.github.com/5722079.js?file=utils.py&quot;&gt; &lt;/script&gt;
 
 
-&lt;h3&gt;Raising custom exception for bad http requests&lt;/h3&gt;
+&lt;h4&gt;Raising custom exception for bad http requests&lt;/h4&gt;
 
 &lt;p&gt;Format of JSON response for bad requests changed from &lt;code&gt;v0.9.12&lt;/code&gt; to &lt;code&gt;v0.9.14&lt;/code&gt; in
 &lt;code&gt;django-tastypie&lt;/code&gt; which caused some issues for iOS application we were building.
@@ -161,7 +161,7 @@ So, I wrote following custom class to solve this:&lt;/p&gt;
 &lt;script src=&quot;https://gist.github.com/5722079.js?file=exceptions.py&quot;&gt; &lt;/script&gt;
 
 
-&lt;h3&gt;Model resources to manage user profiles&lt;/h3&gt;
+&lt;h4&gt;Model resources to manage user profiles&lt;/h4&gt;
 
 &lt;p&gt;I have defined 3 model resources as you can see in following code snippet:&lt;/p&gt;
 
@@ -197,7 +197,7 @@ if your app has option to update &lt;code&gt;username&lt;/code&gt; or &lt;code&g
 comparing &lt;code&gt;bundle.obj.username&lt;/code&gt; with &lt;code&gt;bundle.data.get('username')&lt;/code&gt; in &lt;code&gt;hydrate&lt;/code&gt;
 method of &lt;code&gt;UserResource&lt;/code&gt;.&lt;/b&gt;&lt;/p&gt;
 
-&lt;h3&gt;Conclusion&lt;/h3&gt;
+&lt;h4&gt;Conclusion&lt;/h4&gt;
 
 &lt;p&gt;This simple implementation is easiliy maintainable. If you have any questions or
 suggestions please post them in comments.&lt;/p&gt;
