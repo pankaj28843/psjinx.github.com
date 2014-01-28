@@ -50,7 +50,6 @@
     <div class="large-9 medium-9 columns">
         <div class="posts">
     
-    <div class="post" itemscope itemtype="http://schema.org/Article">
     <h3 class="post-title" id="parsing-excel-workbooks-using-javascript">
     <a href="http://psjinx.com/programming/2014/01/04/parsing-excel-workbooks-using-javascript/">
         <span itemprop="name">Parsing excel workbooks using Javascript</span>
@@ -99,24 +98,6 @@
         <span style="display:none;"><a itemprop="replyToUrl" href="http://psjinx.com/programming/2014/01/04/parsing-excel-workbooks-using-javascript/#disqus_thread">http://psjinx.com/programming/2014/01/04/parsing-excel-workbooks-using-javascript/#disqus_thread</a>
         </span>
     </span>
-</div>
-
-    <span itemprop="description" style="display:none;">A Javascript library for parsing .xlsx files. It includes sample code along with demo for integration with AngularJS. Use cases include listing sheet names for selection in a form, showing preview of selected sheet etc.</span>
-    <div class='section' itemprop="articleBody">
-         Recently, I had to create a new web app, which would generate PDF reports based on data stored in excel worksheets. As usual, I used Django along with many other Python libraries for this.
-
-It has following parts:
-
-1. **HTML Form -** To select excel files and upload it to server
-2. **Parsing uploaded excel file -** Basic validation followed by reading data from worksheets. I used `xlrd` module from [Python-Excel](http://www.python-excel.org/) project for this.
-3. **Data analysis and plots -** I used [`pandas`](http://pandas.pydata.org/), Python Data Analysis Library, and [`matplotlib`](http://matplotlib.org/), a python 2D plotting library, for this.
-4. **PDF Generation -** [`RML`](http://www.reportlab.com/software/rml-reference/) from [ReportLab](http://www.reportlab.com/) along with awesomeness of [Django Templates](https://docs.djangoproject.com/en/dev/ref/templates/) seems suitable for this job. I used [`z3c.rml`](https://github.com/zopefoundation/z3c.rml), an open source implementation of `RML` standard by [Zope Foundation](http://foundation.zope.org/).
-
-So, everything was working like a charm, except the fact that web app was reading data from first worksheet by index whenever an excel workbook was uploaded. But, user should be able to tell which worksheet to read from, right?
-
- 
-    </div>
-    <a href="http://psjinx.com/programming/2014/01/04/parsing-excel-workbooks-using-javascript/">Read more ...</a>
 </div>
 
     
