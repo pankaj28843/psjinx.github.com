@@ -1656,7 +1656,7 @@ select {
   border-style: solid;
   border-width: 1px;
   display: block;
-  font-weight: normal;
+  font-weight: 300;
   margin-bottom: 1.25rem;
   position: relative;
   padding: 0.875rem 1.5rem 0.875rem 0.875rem;
@@ -2369,7 +2369,7 @@ button, .button {
   border-width: 0px;
   cursor: pointer;
   font-family: "Open Sans", sans-serif;
-  font-weight: normal;
+  font-weight: 300;
   line-height: normal;
   margin: 0 0 1.25rem;
   position: relative;
@@ -2392,7 +2392,7 @@ button, .button {
   padding-bottom: 1rem;
   -webkit-appearance: none;
   border: none;
-  font-weight: normal !important;
+  font-weight: 300 !important;
 }
 /* line 144, ../bower_components/foundation/scss/foundation/components/_buttons.scss */
 button:hover, button:focus, .button:hover, .button:focus {
@@ -3330,7 +3330,7 @@ label {
   color: #4d4d4d;
   cursor: pointer;
   display: block;
-  font-weight: normal;
+  font-weight: 300;
   margin-bottom: 0.5rem;
   /* Styles for required inputs */
 }
@@ -3709,7 +3709,7 @@ fieldset legend {
   margin-top: -1px;
   margin-bottom: 1rem;
   font-size: 0.75rem;
-  font-weight: normal;
+  font-weight: 300;
   font-style: italic;
   background: #f04124;
   color: white;
@@ -3726,7 +3726,7 @@ span.error, small.error {
   margin-top: -1px;
   margin-bottom: 1rem;
   font-size: 0.75rem;
-  font-weight: normal;
+  font-weight: 300;
   font-style: italic;
   background: #f04124;
   color: white;
@@ -3751,7 +3751,7 @@ span.error, small.error {
   margin-top: -1px;
   margin-bottom: 1rem;
   font-size: 0.75rem;
-  font-weight: normal;
+  font-weight: 300;
   font-style: italic;
   background: #f04124;
   color: white;
@@ -4023,7 +4023,7 @@ kbd {
 
 /* line 87, ../bower_components/foundation/scss/foundation/components/_labels.scss */
 .label {
-  font-weight: normal;
+  font-weight: 300;
   font-family: "Open Sans", sans-serif;
   text-align: center;
   text-decoration: none;
@@ -4797,7 +4797,7 @@ ul.pagination li {
 /* line 63, ../bower_components/foundation/scss/foundation/components/_side-nav.scss */
 .side-nav li.active > a:first-child {
   color: #4d4d4d;
-  font-weight: normal;
+  font-weight: 300;
   font-family: "Open Sans", sans-serif;
 }
 /* line 69, ../bower_components/foundation/scss/foundation/components/_side-nav.scss */
@@ -4968,7 +4968,7 @@ ul.pagination li {
   margin-left: 1rem;
   margin-bottom: 0.625rem;
   font-family: "Open Sans", sans-serif;
-  font-weight: normal;
+  font-weight: 300;
   font-size: 0.875rem;
   color: #999999;
 }
@@ -4991,7 +4991,7 @@ ul.pagination li {
 .sub-nav li.active a {
   -webkit-border-radius: 3px;
   border-radius: 3px;
-  font-weight: normal;
+  font-weight: 300;
   background: #008cba;
   padding: 0.1875rem 1rem;
   cursor: default;
@@ -5448,7 +5448,7 @@ table tfoot tr td {
   display: none;
   position: absolute;
   z-index: 999;
-  font-weight: normal;
+  font-weight: 300;
   font-size: 0.875rem;
   line-height: 1.3;
   padding: 0.75rem;
@@ -5482,7 +5482,7 @@ table tfoot tr td {
   display: block;
   font-size: 0.625rem;
   color: #777777;
-  font-weight: normal;
+  font-weight: 300;
 }
 
 @media only screen and (min-width: 40.063em) {
@@ -6101,7 +6101,7 @@ a img {
 /* line 163, ../bower_components/foundation/scss/foundation/components/_type.scss */
 p {
   font-family: inherit;
-  font-weight: normal;
+  font-weight: 300;
   font-size: 1rem;
   line-height: 1.6;
   margin-bottom: 1.25rem;
