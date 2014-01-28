@@ -6103,7 +6103,7 @@ p {
   font-family: inherit;
   font-weight: 300;
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.8;
   margin-bottom: 1.25rem;
   text-rendering: optimizeLegibility;
 }
@@ -6220,7 +6220,7 @@ ul,
 ol,
 dl {
   font-size: 1rem;
-  line-height: 1.6;
+  line-height: 1.8;
   margin-bottom: 1.25rem;
   list-style-position: outside;
   font-family: inherit;
@@ -6340,7 +6340,7 @@ blockquote cite a:visited {
 /* line 342, ../bower_components/foundation/scss/foundation/components/_type.scss */
 blockquote,
 blockquote p {
-  line-height: 1.6;
+  line-height: 1.8;
   color: #6f6f6f;
 }
 
