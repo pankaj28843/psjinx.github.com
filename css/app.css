@@ -7400,3 +7400,8 @@ th.hide-for-touch {
 .touch th.show-for-touch {
   display: table-cell !important;
 }
+
+/* line 44, ../_scss/app.scss */
+p, li {
+  line-height: 1.8;
+}
