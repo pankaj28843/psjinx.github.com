@@ -6123,7 +6123,7 @@ p aside {
 /* line 181, ../bower_components/foundation/scss/foundation/components/_type.scss */
 h1, h2, h3, h4, h5, h6 {
   font-family: "Open Sans", "Open Sans", sans-serif;
-  font-weight: 700;
+  font-weight: 600;
   font-style: normal;
   color: #222222;
   text-rendering: optimizeLegibility;
