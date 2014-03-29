@@ -4,7 +4,7 @@
     <title>psjinx's blog</title>
     <link href="http://psjinx.com/feed.xml" rel="self"/>
     <link href="http://psjinx.com/"/>
-    <updated>2014-01-30T21:41:59+05:30</updated>
+    <updated>2014-03-29T13:26:15+05:30</updated>
     <id>http://psjinx.com/</id>
     <author>
         <name>Pankaj Singh</name>
@@ -84,7 +84,7 @@
 &lt;/ol&gt;
 
 
-&lt;p&gt;&lt;em&gt;P.S. - I have tested everything on Google Chrome and Mozilla Firefox only. Since, this web appliaction is for internal use, I don't have to deal with browser compatibility issues. But, it should work in all browsers supported by &lt;a href=&quot;http://lodash.com/&quot;&gt;Lodash&lt;/a&gt; and SheetJS.&lt;/em&gt;&lt;/p&gt;
+&lt;p&gt;&lt;em&gt;P.S. - I have tested everything on Google Chrome and Mozilla Firefox only. Since, this web appliaction is for internal use, I don&#39;t have to deal with browser compatibility issues. But, it should work in all browsers supported by &lt;a href=&quot;http://lodash.com/&quot;&gt;Lodash&lt;/a&gt; and SheetJS.&lt;/em&gt;&lt;/p&gt;
 </content>
     </entry>
     
@@ -104,7 +104,7 @@ mostly related to Django for next few weeks.&lt;/p&gt;
 for iOS applications. It involved implementation of an end point for creating
 new users.&lt;/p&gt;
 
-&lt;p&gt;This is not something which is really documented, so here I'm sharing my experience.
+&lt;p&gt;This is not something which is really documented, so here I&#39;m sharing my experience.
 In a nutshell, we need to override &lt;code&gt;obj_create&lt;/code&gt; method of &lt;code&gt;ModelResource&lt;/code&gt; and do
 some validation on posted data. After few iterations I ended up with a code
 which is easily maintainable with future relases of &lt;code&gt;django-tastypie&lt;/code&gt;.&lt;/p&gt;
@@ -120,7 +120,7 @@ which is easily maintainable with future relases of &lt;code&gt;django-tastypie&
 &lt;/ol&gt;
 
 
-&lt;p&gt;Let's dive in.&lt;/p&gt;
+&lt;p&gt;Let&#39;s dive in.&lt;/p&gt;
 
 &lt;!-- more --&gt;
 
@@ -143,7 +143,7 @@ Since, support for custom User model was not very good in &lt;code&gt;django-tas
 
 &lt;h4&gt;In case you need custom password validation&lt;/h4&gt;
 
-&lt;p&gt;If you have some rules for passwords then it's best to have that logic in a
+&lt;p&gt;If you have some rules for passwords then it&#39;s best to have that logic in a
 function, because we may need to use that at different places (custom view
 for resetting password?).&lt;/p&gt;
 
@@ -194,7 +194,7 @@ other user with same &lt;code&gt;email&lt;/code&gt; and &lt;code&gt;username&lt;
 
 &lt;p&gt;&lt;b&gt;You should also check if there is any other user with same &lt;code&gt;username&lt;/code&gt; or &lt;code&gt;email&lt;/code&gt;
 if your app has option to update &lt;code&gt;username&lt;/code&gt; or &lt;code&gt;email&lt;/code&gt;. It can be done by
-comparing &lt;code&gt;bundle.obj.username&lt;/code&gt; with &lt;code&gt;bundle.data.get('username')&lt;/code&gt; in &lt;code&gt;hydrate&lt;/code&gt;
+comparing &lt;code&gt;bundle.obj.username&lt;/code&gt; with &lt;code&gt;bundle.data.get(&#39;username&#39;)&lt;/code&gt; in &lt;code&gt;hydrate&lt;/code&gt;
 method of &lt;code&gt;UserResource&lt;/code&gt;.&lt;/b&gt;&lt;/p&gt;
 
 &lt;h4&gt;Conclusion&lt;/h4&gt;
