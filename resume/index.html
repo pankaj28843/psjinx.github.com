@@ -28,20 +28,17 @@
   <body>
       <div style="text-align:center; width=100%; height=100%;">
     <iframe id="google-doc-iframe" src="https://docs.google.com/document/d/1Kpb8AQr-VAhVfzLGO7vlC_oOMlA6fZEBcyeTwlHnZHs/pub?embedded=true" style="height: 1050px; margin: 0 auto;" align="middle" frameborder="0" width="100%" height="100%" scrolling="no">
-        <base target="_blank" />
-    </iframe>
-</div>
-
-
-<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
-
-
-<script>
+        <script>
 $(function(){
     $("#google-doc-iframe").contents().find('a[href^="http://"]').attr("target", "_blank");
     $("#google-doc-iframe").contents().find('a[href^="https://"]').attr("target", "_blank");
 });
 </script>
+    </iframe>
+</div>
+
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
 
  </body>
