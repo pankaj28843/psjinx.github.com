@@ -1,0 +1,71 @@
+==================================================================
+https://keybase.io/psjinx
+--------------------------------------------------------------------
+
+I hereby claim:
+
+  * I am an admin of http://psjinx.com
+  * I am psjinx (https://keybase.io/psjinx) on keybase.
+  * I have a public key with fingerprint 809D 7865 9C90 60DD 177C  AEBD B3F3 373B 9AFF 9459
+
+To claim this, I am signing this object:
+
+{
+    "body": {
+        "key": {
+            "fingerprint": "809d78659c9060dd177caebdb3f3373b9aff9459",
+            "host": "keybase.io",
+            "key_id": "b3f3373b9aff9459",
+            "uid": "667de955edfb66a7ac1fc74d971e3e00",
+            "username": "psjinx"
+        },
+        "service": {
+            "hostname": "psjinx.com",
+            "protocol": "http:"
+        },
+        "type": "web_service_binding",
+        "version": 1
+    },
+    "ctime": 1410509738,
+    "expire_in": 157680000,
+    "prev": "9a5d7d994359ced4a900175bc87516855b140793201b1e5ea3af137b77a7c0a4",
+    "seqno": 6,
+    "tag": "signature"
+}
+
+with the aforementioned key, yielding the PGP signature:
+
+-----BEGIN PGP MESSAGE-----
+Version: Keybase OpenPGP v1.0.3
+Comment: https://keybase.io/crypto
+
+yMLzAnicO8LLzMDFuPmzufWs/1MiGU8feFvKECK0elW1UlJ+SqWSVbVSdiqYSsvM
+S08tKijKzCtRslKyMLBMMbcwM7VMtjQwM0hJMTQ3T05MTUpJMk4zNjY3TrJMTEuz
+NDG1VNJRysgvBukAGpOUWJyql5kPFANy4jNTgKJY1JeCJczMzFNSLU1NU1PSkszM
+Es0Tkw3Tks1NUizNDVONUw0MQAqLU4vyEnNTgaoLirMy8yqUanWUgGJlmcmpIBeD
+LEaR10vOzwXqKyjKL8lPzs8BimeUlBRYgbSVVBaA1JWnJsVDTYhPysxLAfoZqKEs
+tag4Mz9PycoQqDK5JBNkpKGJoYGpgaW5sYWOUmpFQWZRanwmSIWpuZmFARCArEkt
+AxppmWiaYp5iaWliDAys1BSTREsDA0Nz06RkC3NTQzMLU9MkQxMDc0tjIwPDJMNU
+09RE48Q0Q2PzJHPzRPNkg0QTJZCfCvPylazMgM5MTAcaWZyZnpdYUlqUqlR76GAM
+CwMjFwMbKxMo1hi4OAVgcXndgf9/ScCSowbSj+3mfxYPWr7YdG1HSdo6q57qL5Gn
+vLprLWIcTWJ+7TjkcvYt+/MU78KU97vmZu6e++HjAblD3V6Hn7mtVHgq5ydz6/oj
+xZeuZlarA3ylSnZJSbz5pCm0bPr7Y+wZRYzTg63+vFzG9H+zkH34FdnfB5weGq8t
+iXJ4dl/ydVQMm+DTbnkxm6kr2j8zcB+78NDllxDTqgVBB4QW/FmTvrT23xWZeYaB
+zyJ1DdYan3JruPN1+fVVVo9lC/Zy9jke6XzTvOFLNv+lG0ddPbqVY/r1pB7Iuu+5
+++a43/fDamlexysCQrexJkd7JansdFho9fyTctOWX+ap85Nk5woyur6/1Dtnb2HE
+kiADC4Wyd9b/p31evP20oNLFrwFZR08/PO37cHrr5ax7/32Ou5rP1fhd8+q8cwbP
+X62qshZvVoaSB1f2z227o7RLIuFCQpxriBaHiX2KffynR+lbutTcHLzO63x8HCrU
+6/h32/v5PzJP3d64cmqx3SoBR6eYWcq3zPpufpi5ZqVMyEfhRwmynRP2+Mx3coic
+L65u5dB2Xpit//izu6YmOutXnO0I1nylwBs3p2FahfZEbgHFi78Xd366GSJvzvm1
+zkTxw5YJ7B47W4V5PsTWP9NkLdYVeLMv8n2K5lMxEePODmurBptHW70XrOR1T9Lz
+n/h/D6/Vtg8N97q+Zb08+vCiUbKgw2+153eXTg9csrILAAwglM8=
+=pQlt
+-----END PGP MESSAGE-----
+
+And finally, I am proving ownership of this host by posting or
+appending to this document.
+
+View my publicly-auditable identity here: https://keybase.io/psjinx
+
+==================================================================
+
