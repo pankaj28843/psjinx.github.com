@@ -123,19 +123,18 @@
 
 <p>After 1-2 hours of walking through source code of <code>js-xlsx</code>, I ended up writing <a href="https://gist.github.com/psjinx/8002786">XLSX reader using javascript for humans</a>. Example code using this new library looks like:</p>
 
-<div class="highlight"><pre><code class="javascript"><span class="nx">$</span><span class="p">(</span><span class="kd">function</span><span class="p">()</span> <span class="p">{</span>
-    <span class="nx">$</span><span class="p">(</span><span class="s2">&quot;#xlsxFile&quot;</span><span class="p">).</span><span class="nx">change</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">event</span><span class="p">)</span> <span class="p">{</span>
-        <span class="kd">var</span> <span class="nx">file</span> <span class="o">=</span> <span class="k">this</span><span class="p">.</span><span class="nx">files</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span>
-            <span class="nx">sheets</span><span class="p">;</span>
-        <span class="nx">XLSXReader</span><span class="p">(</span><span class="nx">file</span><span class="p">,</span> <span class="kc">true</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">xlsxData</span><span class="p">)</span> <span class="p">{</span>
-            <span class="nx">sheets</span> <span class="o">=</span> <span class="nx">xlsxData</span><span class="p">.</span><span class="nx">sheets</span><span class="p">;</span>
-            <span class="c1">// Do somehting with sheets. It&#39;s a</span>
-            <span class="c1">// Javascript object with sheet names</span>
-            <span class="c1">// as keys and data as value in form of 2D array</span>
-        <span class="p">});</span>
-    <span class="p">});</span>
-<span class="p">});</span>
-</code></pre></div>
+<div class="highlight"><pre><code class="language-javascript" data-lang="javascript">$(function() {
+    $(&quot;#xlsxFile&quot;).change(function(event) {
+        var file = this.files[0],
+            sheets;
+        XLSXReader(file, true, function(xlsxData) {
+            sheets = xlsxData.sheets;
+            // Do somehting with sheets. It's a
+            // Javascript object with sheet names
+            // as keys and data as value in form of 2D array
+        });
+    });
+});</code></pre></div>
 
 
 <p>I have integrated this <code>XLSXReader</code> in my web app along with <a href="http://angularjs.org/">AngularJS</a>. It consists of following parts:</p>
@@ -216,14 +215,14 @@
         </p>
         <h4>Tags</h4>
         <p class="tag-cloud">
-            <span style='font-size: 100%'><a href='/tags/xlsxjs/'>xlsxjs</a></span>
+            <span style='font-size: 100%'><a href='/tags/django/'>django</a></span>
+<span style='font-size: 100%'><a href='/tags/django-tastypie/'>django-tastypie</a></span>
+<span style='font-size: 100%'><a href='/tags/rest-api/'>rest-api</a></span>
+<span style='font-size: 100%'><a href='/tags/xlsxjs/'>xlsxjs</a></span>
 <span style='font-size: 100%'><a href='/tags/xlsx/'>xlsx</a></span>
 <span style='font-size: 100%'><a href='/tags/javascript/'>javascript</a></span>
 <span style='font-size: 100%'><a href='/tags/excel/'>excel</a></span>
 <span style='font-size: 100%'><a href='/tags/workbook/'>workbook</a></span>
-<span style='font-size: 100%'><a href='/tags/django/'>django</a></span>
-<span style='font-size: 100%'><a href='/tags/django-tastypie/'>django-tastypie</a></span>
-<span style='font-size: 100%'><a href='/tags/rest-api/'>rest-api</a></span>
 
         </p>
     </div>
